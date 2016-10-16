@@ -28,7 +28,6 @@
 --
 
 What is a pure function?
---
 
 ➠ functions that have no side effects.
 --
@@ -216,6 +215,13 @@ def mean(xs: Seq[Double]): Double =
 | \*\yThe Option data type
 
 ```
+sealed trait Option[+A]
+case class Some[+A](get: A) extends Option[A] 
+case object None extends Option[Nothing]
+```
+--
+
+```
 def mean(xs: Seq[Double]): Option[Double] = 
     if (xs.isEmpty) None
     else Some(xs.sum / xs.length)
@@ -256,6 +262,7 @@ case class Failure[+T](val exception: Throwable) extends Try[T]
 ```
 
 ➠ Either
+
 ```
 sealed trait Either[+E, +A]
 case class Left[+E](value: E) extends Either[E, Nothing] 
@@ -290,7 +297,7 @@ def putLine: String => IO[Unit]
 val ask: IO[Unit] = for {
   _    <- putLine("What is your name?")
   name <- getLine
-  _    <- putLine("Hello, " ++ name)
+  _    <- putLine("Hello, " + name)
 } yield ()
 ```
 --
@@ -308,7 +315,6 @@ run(ask)
 
 ---
 | \*\yModularity
---
 
  ➠ Reusable
  ➠ Testable
@@ -361,6 +367,7 @@ class Cafe {
     }
 }
 ```
+--
 
 According to the definition of RT \mp(buyCoffee(aliceCreditCard)) 
 must be the same as \mp(new Coffee()), 
@@ -399,41 +406,36 @@ class Cafe {
     val (cafee, charge) = buyCafee(cc)
     charge.amount == cofee.price && charge.card == cc
 }
+```
 ---
-| \*\yParallelizable
-
-RT + immutable variables =>
-
-➠ Computations could be run in parallel
-➠ Immutable values could be freely shared between threads
-➠ No deadlocks
-➠ No race conditions
-➠ No synchronization issues
----
-| \*\yMore benefits of FP
-
-TODO
 | \*\yConceptual integration
-When we recognize common structure among different solutions in different contexts, we unite all of those instances of the structure under a single definition and give it a name. "That looks like a monad!"
-if other people have developed the same kind of vocabulary, you can communicate your designs to them with extraordinary efficiency.
+--
+
+semigroup, currying, monad transformer, partial application, 
+functor, monoid, monad, applicative, lambda, combinator, 
+typeclass, ADT, higher-kinded type, list comprehension, 
+traversable, coproduct, ...
 ---
 | \*\yCompositionality
 
 The meaning oh the whole is constructed from the meaning of its parts.
 
-Many \mX\wscombine into a composite \mX
+Many \mX\ws combine into a composite \mX
 
 Surface complexity is constant as system size increases.
 --
 
 42 = 2 * 3 * 7
---
 
 val fg = f andThen g
 ---
 | \*\yFP => Happiness
 
-TODO
+➠ Less frustration
+➠ More predictable
+➠ Less cognitive load
+➠ Smaller solution space
+➠ Pride
 ---
 | Sources
 
