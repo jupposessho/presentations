@@ -2,8 +2,8 @@ case class REPLesent(
   width: Int = 0
 , height: Int = 0
 , input: String = "REPLesent.txt"
-, slideCounter: Boolean = true
-, slideTotal: Boolean = true
+, slideCounter: Boolean = false
+, slideTotal: Boolean = false
 , intp: scala.tools.nsc.interpreter.IMain = null
 ) {
   import scala.util.Try

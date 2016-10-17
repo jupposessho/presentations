@@ -418,7 +418,7 @@ traversable, coproduct, ...
 ---
 | \*\yCompositionality
 
-The meaning oh the whole is constructed from the meaning of its parts.
+The meaning of the whole is constructed from the meaning of its parts.
 
 Many \mX\ws combine into a composite \mX
 
