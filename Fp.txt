@@ -1,53 +1,40 @@
-< \r███████\m╗\r██\m╗   \r██\m╗\r███\m╗   \r██\m╗ \r██████\m╗\r████████\m╗\r██\m╗ \r██████\m╗ \r███\m╗   \r██\m╗ \r█████\m╗ \r██\m╗                     
-< \r██\m╔════╝\r██\m║   \r██\m║\r████\m╗  \r██\m║\r██\m╔════╝╚══\r██\m╔══╝\r██\m║\r██\m╔═══\r██\m╗\r████\m╗  \r██\m║\r██\m╔══\r██\m╗\r██\m║                     
-< \r█████\m╗  \r██\m║   \r██\m║\r██\m╔\r██\m╗ \r██\m║\r██\m║        \r██\m║   \r██\m║\r██\m║   \r██\m║\r██\m╔\r██\m╗ \r██\m║\r███████\m║\r██\m║                     
-< \r██\m╔══╝  \r██\m║   \r██\m║\r██\m║╚\r██\m╗\r██\m║\r██\m║        \r██\m║   \r██\m║\r██\m║   \r██\m║\r██\m║╚\r██\m╗\r██\m║\r██\m╔══\r██\m║\r██\m║                     
-< \r██\m║     ╚\r██████\m╔╝\r██\m║ ╚\r████\m║╚\r██████\m╗   \r██\m║   \r██\m║╚\r██████\m╔╝\r██\m║ ╚\r████\m║\r██\m║  \r██\m║\r███████\m╗                
-< \m╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝                
-                                                                                                  
-██████╗ ██████╗  ██████╗  ██████╗ ██████╗  █████╗ ███╗   ███╗███╗   ███╗██╗███╗   ██╗ ██████╗     
-██╔══██╗██╔══██╗██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗████╗ ████║████╗ ████║██║████╗  ██║██╔════╝     
-██████╔╝██████╔╝██║   ██║██║  ███╗██████╔╝███████║██╔████╔██║██╔████╔██║██║██╔██╗ ██║██║  ███╗    
-██╔═══╝ ██╔══██╗██║   ██║██║   ██║██╔══██╗██╔══██║██║╚██╔╝██║██║╚██╔╝██║██║██║╚██╗██║██║   ██║    
-██║     ██║  ██║╚██████╔╝╚██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝    
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-                                                                                                  
-██████╗ ██████╗ ██╗███╗   ██╗ ██████╗██╗██████╗ ██╗     ███████╗███████╗                          
-██╔══██╗██╔══██╗██║████╗  ██║██╔════╝██║██╔══██╗██║     ██╔════╝██╔════╝                          
-██████╔╝██████╔╝██║██╔██╗ ██║██║     ██║██████╔╝██║     █████╗  ███████╗                          
-██╔═══╝ ██╔══██╗██║██║╚██╗██║██║     ██║██╔═══╝ ██║     ██╔══╝  ╚════██║                          
-██║     ██║  ██║██║██║ ╚████║╚██████╗██║██║     ███████╗███████╗███████║                          
+< \r███████\m╗\r██\m╗   \r██\m╗\r███\m╗   \r██\m╗ \r██████\m╗\r████████\m╗\r██\m╗ \r██████\m╗ \r███\m╗   \r██\m╗ \r█████\m╗ \r██\m╗
+< \r██\m╔════╝\r██\m║   \r██\m║\r████\m╗  \r██\m║\r██\m╔════╝╚══\r██\m╔══╝\r██\m║\r██\m╔═══\r██\m╗\r████\m╗  \r██\m║\r██\m╔══\r██\m╗\r██\m║
+< \r█████\m╗  \r██\m║   \r██\m║\r██\m╔\r██\m╗ \r██\m║\r██\m║        \r██\m║   \r██\m║\r██\m║   \r██\m║\r██\m╔\r██\m╗ \r██\m║\r███████\m║\r██\m║
+< \r██\m╔══╝  \r██\m║   \r██\m║\r██\m║╚\r██\m╗\r██\m║\r██\m║        \r██\m║   \r██\m║\r██\m║   \r██\m║\r██\m║╚\r██\m╗\r██\m║\r██\m╔══\r██\m║\r██\m║
+< \r██\m║     ╚\r██████\m╔╝\r██\m║ ╚\r████\m║╚\r██████\m╗   \r██\m║   \r██\m║╚\r██████\m╔╝\r██\m║ ╚\r████\m║\r██\m║  \r██\m║\r███████\m╗
+< \m╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
+
+██████╗ ██████╗  ██████╗  ██████╗ ██████╗  █████╗ ███╗   ███╗███╗   ███╗██╗███╗   ██╗ ██████╗
+██╔══██╗██╔══██╗██╔═══██╗██╔════╝ ██╔══██╗██╔══██╗████╗ ████║████╗ ████║██║████╗  ██║██╔════╝
+██████╔╝██████╔╝██║   ██║██║  ███╗██████╔╝███████║██╔████╔██║██╔████╔██║██║██╔██╗ ██║██║  ███╗
+██╔═══╝ ██╔══██╗██║   ██║██║   ██║██╔══██╗██╔══██║██║╚██╔╝██║██║╚██╔╝██║██║██║╚██╗██║██║   ██║
+██║     ██║  ██║╚██████╔╝╚██████╔╝██║  ██║██║  ██║██║ ╚═╝ ██║██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+██████╗ ██████╗ ██╗███╗   ██╗ ██████╗██╗██████╗ ██╗     ███████╗███████╗
+██╔══██╗██╔══██╗██║████╗  ██║██╔════╝██║██╔══██╗██║     ██╔════╝██╔════╝
+██████╔╝██████╔╝██║██╔██╗ ██║██║     ██║██████╔╝██║     █████╗  ███████╗
+██╔═══╝ ██╔══██╗██║██║╚██╗██║██║     ██║██╔═══╝ ██║     ██╔══╝  ╚════██║
+██║     ██║  ██║██║██║ ╚████║╚██████╗██║██║     ███████╗███████╗███████║
 ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝╚═╝╚═╝     ╚══════╝╚══════╝╚══════╝
 ---
 | \*\yWhat is FP?
 
-| Functional programming is a way of writing software applications 
+| Functional programming is a way of writing software applications
 | using only pure functions and immutable values.
 ---
-| \*\yQuestions?
---
 
-What is a pure function?
-
-➠ functions that have no side effects.
---
-
-What are side effects?
----
-
-| \*\yA function has a side effect if it does 
-| \*\ysomething other than simply return a result
---
+| \*\ySide effects
 
  ➠ Modifying a variable
  ➠ Modifying a data structure in place
  ➠ Setting a field on an object
- ➠ Throwing an exception or halting with an error 
+ ➠ Throwing an exception or halting with an error
  ➠ Printing to the console or reading user input
  ➠ Reading from or writing to a file
  ➠ Drawing on the screen
 ---
-
 | \*\yWhat questions come to mind?
 --
 
@@ -80,77 +67,161 @@ What are side effects?
 --
 
 ```
-import scala.collection.mutable.ListBuffer
-
-def double(ints: List[Int]): List[Int] = {
-    val buffer = new ListBuffer[Int]()
-    for (i <- ints) {
-        buffer += i * 2
-    }
-    buffer.toList
+def factorial(n: Int) = {
+  var product = 1
+  for (i <- 1 to n) {
+    product = product * i
+  }
+  product
 }
 
-val l = List(1, 2, 3)
-
-double(l)
+factorial(4)
 ```
 --
 
 Same in FP style?
 ---
-| \*\yAnother example - Fibonacci numbers
---
+| \*\ySubstitution Model
 
 ```
-import scala.math.BigInt
-lazy val fibs: Stream[BigInt] = BigInt(0) #::
-                                BigInt(1) #::
-                                fibs.zip(fibs.tail).map { n => n._1 + n._2 }
+def factorial(n: Int): Int =
+  if (n == 0) 1 else n * factorial(n - 1)
 ```
+--
+
+factorial(4)
+
+➠ if (4 == 0) 1 else 4 * factorial(4 - 1)
+➠ 4 * factorial(3)
+➠ 4 * 3 * factorial(2)
+➠ 4 * 3 * 2 * factorial(1)
+➠ 4 * 3 * 2 * 1 * factorial(0)
+➠ 4 * 3 * 2 * 1 * 0
+➠ 24
 ---
-| \*\yCalculating prime numbers
+| \*\yThe problem of state
+--
 
-```
-val ps: Stream[Int] = 2 #:: Stream.from(3).filter(i =>
-   ps.takeWhile(j => j * j <= i).forall(k => i % k > 0))
-```
+In a functional program y = f(x)
 
-Hint: If i is not a multiple of a lesser prime number, then i is prime.
+No matter what time it is
 ---
-| \*\yModifying a variable
+| \*\yComparison
+
+➠ Which is pure? - AssertEquals(f(x), f(x))
+➠ Which is simpler?
+➠ Which is faster?
+➠ Which is more thread safe?
+➠ Which one uses more memory?
+---
+| \*\yMemory
 --
 
-First, here’s an imperative version of a sum method:
+Functional programming was invented in 1957 before OO and structured.
 
-```
-def sum(ints: List[Int]): Int = {
-    var sum = 0
-    for (i <- ints) {
-        sum += i
-    }
-    sum
-}
-```
---
+But memory was too expensive to make it practical.
 
-Next, here’s a Scala/FP version of that same method:
+But memory is cheap now.
+
+1957 - 411,041,792 $/Mbyte
+2016 - 0.0027      $/Mbyte
+
+> \mhttp://www.jcmit.com/memoryprice.htm
+---
+| \*\yBenefits of functional programming
+
+Simpler to
+
+ ➠ read?
+ ➠ write
+ ➠ maintain
+ ➠ debug
+ ➠ test
+---
+| \*\yModularity
+
+ ➠ Reusable
+ ➠ Testable
+ ➠ Parallelizable
+ ➠ Comprehensible
+---
+| \*\yReusable
 
 ```
 def sum(xs: List[Int]): Int = xs match {
-    case Nil => 0
-    case x :: tail => x + sum(tail)
+    case Nil => \y0
+    case x :: tail => x \y+ sum(tail)
+}
+
+def product(xs: List[Int]): Int = xs match {
+    case Nil => \y1
+    case x :: tail => x \y* product(tail)
 }
 ```
+---
+```
+def foldRight[A, B](l: List[A], z: B)(f: (A, B) => B): B = l match {
+    case Nil => z
+    case x :: xs => f(x, foldRight(xs, z)(f))
+}
+--
+
+def sum(ns: List[Int])        = foldRight(ns, 0)((x, y) => x + y)
+
+def product(ns: List[Double]) = foldRight(ns, 1.0)(_ * _)
+
+def all(ns: List[Boolean])    = foldRight(ns, true)(_ && _)
+
+def any(ns: List[Boolean])    = foldRight(ns, false)(_ || _)
+
+def concat(ns: List[String])  = foldRight(ns, "")(_ + _)
+```
+--
+
+Descriptive variable names are a code smell.
+More precisely, if you can name your variables after more descriptive things
+than \mf, a, b, \wand so on, then your code is probably monomorphic.
+
+> \mJohn A De Goes
+---
+| \*\yConceptual integration
+--
+
+semigroup, currying, monad transformer, partial application,
+functor, monoid, monad, applicative, lambda, combinator,
+typeclass, ADT, higher-kinded type, list comprehension,
+traversable, coproduct, ...
+---
+| \*\yCompositionality
+
+The meaning of the whole is constructed from the meaning of its parts.
+
+Many \mX\ws combine into a composite \mX
+
+Surface complexity is constant as system size increases.
+--
+
+42 = 2 * 3 * 7
+
+val fg = f andThen g
+---
+| \*\yFP => Happiness
+
+➠ Less frustration
+➠ More predictable
+➠ Less cognitive load
+➠ Smaller solution space
+➠ Pride
 ---
 | \*\yFailure as a side effect
 
 Referential transparency and purity
 --
 
-An expression \me\w is referentially transparent if, 
-for all programs \mp, 
-all occurrences of \me in p 
-can be replaced by the result of evaluating \me 
+An expression \me\w is referentially transparent if,
+for all programs \mp,
+all occurrences of \me in p
+can be replaced by the result of evaluating \me
 without affecting the meaning of \mp.
 --
 
@@ -164,14 +235,14 @@ def failingFn(i: Int): Int = {
     try {
         val x = 42 + 5
         x + y
-    } catch { case e: Exception => 43 } 
+    } catch { case e: Exception => 43 }
 }
 
-def failingFn2(i: Int): Int = { 
+def failingFn2(i: Int): Int = {
     try {
         val x = 42 + 5
-        x + ((throw new Exception("fail!")): Int) 
-    } catch { case e: Exception => 43 } 
+        x + ((throw new Exception("fail!")): Int)
+    } catch { case e: Exception => 43 }
 }
 ```
 
@@ -216,13 +287,13 @@ def mean(xs: Seq[Double]): Double =
 
 ```
 sealed trait Option[+A]
-case class Some[+A](get: A) extends Option[A] 
+case class Some[+A](get: A) extends Option[A]
 case object None extends Option[Nothing]
 ```
 --
 
 ```
-def mean(xs: Seq[Double]): Option[Double] = 
+def mean(xs: Seq[Double]): Option[Double] =
     if (xs.isEmpty) None
     else Some(xs.sum / xs.length)
 ```
@@ -265,7 +336,7 @@ case class Failure[+T](val exception: Throwable) extends Try[T]
 
 ```
 sealed trait Either[+E, +A]
-case class Left[+E](value: E) extends Either[E, Nothing] 
+case class Left[+E](value: E) extends Either[E, Nothing]
 case class Right[+A](value: A) extends Either[Nothing, A]
 ```
 
@@ -311,140 +382,59 @@ def run[A](program: IO[A]): A = program match {
 run(ask)
 ```
 ---
-| \*\yBenefits of functional programming
-
----
-| \*\yModularity
-
- ➠ Reusable
- ➠ Testable
- ➠ Parallelizable
- ➠ Comprehensible
----
-| \*\yReusable
+| \*\yFP is easy
 --
 
-```
-def sum(xs: List[Int]): Int = xs match {
-    case Nil => \y0
-    case x :: tail => x \y+ sum(tail)
-}
+You think writing list.​stream().map(…).filter(…)
 
-def product(xs: List[Int]): Int = xs match {
-    case Nil => \y1
-    case x :: tail => x \y* product(tail)
-}
-```
+you're doing functional programming?
+
+Wrong. This crazy shit is FP:
+
+> Tagir Valeev
 ---
 ```
-def foldRight[A, B](l: List[A], z: B)(f: (A, B) => B): B = l match {
-    case Nil => z
-    case x :: xs => f(x, foldRight(xs, z)(f)) 
+trait Delta[R <: HList] extends DepFn2[R, R]{
+  type Out <: HList
 }
---
 
-def sum(ns: List[Int])        = foldRight(ns, 0)((x, y) => x + y)
+object Delta {
 
-def product(ns: List[Double]) = foldRight(ns, 1.0)(_ * _)
+  type Aux[R <: HList, O <: HList] = Delta[R]{type Out = O}
 
-def all(ns: List[Boolean])    = foldRight(ns, true)(_ && _)
+  implicit def hnilDelta: Aux[HNil, HNil] = new Delta[HNil] {
+    override type Out = HNil
 
-def any(ns: List[Boolean])    = foldRight(ns, false)(_ || _)
+    override def apply(l: HNil, r: HNil): Out = HNil
+  }
 
-def concat(ns: List[String])  = foldRight(ns, "")(_ + _)
-```
----
-| \*\yTestable
+  implicit def hconsGenDelta[H, GH <: HList, DH <: HList,  T <: HList, DT <: HList]
+    (implicit genH: Generic.Aux[H, GH],
+              nested: Delta.Aux[GH, DH],
+              tailDelta: Delta.Aux[T, DT])
+    : Aux[H :: T, DH :: DT] = new Delta[H :: T] {
+      override type Out = DH :: DT
 
-Example with side effect
-
-```
-class Cafe {
-    def buyCoffee(cc: CreditCard): Coffee = {
-        val cup = new Coffee()
-        cc.charge(cup.price)
-        cup
+      override def apply(l: H :: T, r: H :: T): Out =
+        nested(genH.to(l.head), genH.to(r.head)) :: tailDelta(l.tail, r.tail)
     }
 }
 ```
---
-
-According to the definition of RT \mp(buyCoffee(aliceCreditCard)) 
-must be the same as \mp(new Coffee()), 
-for any p
-
-This clearly doesn’t hold
-
----
-| \*\yAfter Refactoring
-
-```
-class Cafe {
-    def buyCoffee(cc: CreditCard, p: Payments): Coffee = {
-        val cup = new Coffee() 
-        p.charge(cc, cup.price) 
-        cup
-    } 
-}
-```
----
-| \*\yA functional solution: removing the side effects
-
-```
-class Cafe {
-    def buyCoffee(cc: CreditCard): (Coffee, Charge) = {
-        val cup = new Coffee() 
-        (cup, Charge(cc, cup.price))
-    } 
-}
-```
---
-| \*\ySimple test
-
-```
-(cc: CreditCard) => {
-    val (cafee, charge) = buyCafee(cc)
-    charge.amount == cofee.price && charge.card == cc
-}
-```
----
-| \*\yConceptual integration
---
-
-semigroup, currying, monad transformer, partial application, 
-functor, monoid, monad, applicative, lambda, combinator, 
-typeclass, ADT, higher-kinded type, list comprehension, 
-traversable, coproduct, ...
----
-| \*\yCompositionality
-
-The meaning of the whole is constructed from the meaning of its parts.
-
-Many \mX\ws combine into a composite \mX
-
-Surface complexity is constant as system size increases.
---
-
-42 = 2 * 3 * 7
-
-val fg = f andThen g
----
-| \*\yFP => Happiness
-
-➠ Less frustration
-➠ More predictable
-➠ Less cognitive load
-➠ Smaller solution space
-➠ Pride
 ---
 | Sources
 
 > \*\yFunctional Programming in Scala
 > Paul Chiusano
 > Rúnar Bjarnason
+> \mhttps://www.youtube.com/watch?v=aa7jh1J4xNs
 
 > \*\yFunctional Programming, Simplified
 > Alvin Alexander
+> \mhttp://scalafp.com
+
+> \*\yFunctional Programming; What? Why? When?
+> Robert C Martin
+> \mhttps://www.youtube.com/watch?v=7Zlp9rKHGD4
 ---
 
 | Thank You!
