@@ -1,0 +1,515 @@
+| \*\yMonoids\s: The \mCats' Way
+/
+
+| Vilmos Feher
+
+| Source: Advanced Scala with Cats
+
+---
+
+| \mLet’s start by looking a few types and operations,
+| \mand see what common principles we can extract.
+--
+
+Integer addition
+
+\yClosed binary operation: Int + Int = Int
+
+2 + 1
+
+\yIdentity element: 0
+
+a + 0 == 0 + a == a for any Int a
+
+2 + 0
+
+\yAssociativity
+
+(1 + 2) + 3
+
+1 + (2 + 3)
+---
+
+| Integer multiplication
+
+\yIdentity element: 1
+
+(1 * 2) * 3
+
+1 * (2 * 3)
+
+2 * 3
+---
+
+String and sequence concatenation
+
+\yIdentity element: "" / Seq[T].empty
+
+"" ++ "Hello"
+
+("One" ++ "Two") ++ "Three"
+
+"One" ++ ("Two" ++ "Three")
+---
+
+| Definition of a \yMonoid
+--
+
+An operation \mcombine \wwith type (A, A) => A; and
+--
+
+An element \mempty \wof type A.
+--
+
+The following laws must hold:
+--
+
+- combine is associative, meaning
+  combine(x, combine(y, z)) == combine(combine(x, y), z)
+  for all x, y, and z, in A;
+--
+
+- empty is an identity of combine, meaning
+  combine(a, empty) == combine(empty, a) == a
+  for any a in A.
+---
+
+| A simplified version of the definition from Cats is:
+--
+
+trait Monoid[A] {
+  def combine(x: A, y: A): A
+  def empty: A
+}
+
+where combine is the binary operation and empty is the identity.
+---
+
+| \yExcercise
+
+| How many monoids can you define for Boolean?
+--
+
+| 1. operator && and identity true
+
+```
+import cats.Monoid
+
+implicit val booleanAndMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+  def combine(a: Boolean, b: Boolean) = a && b
+  def empty = true
+}
+```
+---
+
+| 2. operator || and identity false
+
+```
+implicit val booleanOrMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+  def combine(a: Boolean, b: Boolean) = a || b
+  def empty = false
+}
+```
+---
+
+| 3. exclusive or with identity false
+
+```
+implicit val booleanXorMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+  def combine(a: Boolean, b: Boolean) = (a && !b) || (!a && b)
+  def empty = false
+}
+---
+
+| 4. exclusive nor (the negation of exclusive or) with identity true
+
+```
+implicit val booleanXnorMonoid: Monoid[Boolean] = new Monoid[Boolean] {
+  def combine(a: Boolean, b: Boolean) = (!a || b) && (a || !b)
+  def empty = true
+}
+```
+---
+
+| \yExcercise
+
+| How about Sets?
+
+| Set union forms a monoid along with the empty set:
+
+```
+implicit def setUnionMonoid[A]: Monoid[Set[A]] = new Monoid[Set[A]] {
+  def combine(a: Set[A], b: Set[A]) = a union b
+  def empty = Set.empty[A]
+}
+```
+---
+
+| Set intersection?
+
+| there is no identity element :(
+--
+
+| We call this weaker structure a semi-group —
+| a combine operation without an empty
+
+```
+import cats.Semigroup
+
+implicit def setIntersectionSemigroup[A]: Semigroup[Set[A]] =
+  new Semigroup[Set[A]] {
+    def combine(a: Set[A], b: Set[A]) = a intersect b
+  }
+```
+---
+| Monoid homomorphisms
+
+"foo".length + "bar".length == ("foo" + "bar").length
+
+Here, length is a function from String to Int that preserves the monoid structure. 
+Such a function is called a monoid homomorphism.
+--
+
+A monoid homomorphism f between monoids M and N obeys the following 
+general law for all values x and y:
+
+M.op(f(x), f(y)) == f(N.op(x, y))
+
+--
+monoid isomorphism - both direction
+
+---
+| \yMonoids in \mCats
+--
+
+1. The \yMonoid Type Class is \mcats.\yMonoid
+
+\yMonoid extends \wSemigroup
+---
+
+2. Instances
+
+```
+import cats.Monoid
+
+import cats.instances.string._
+
+Monoid[String].combine("Hi ", "there")
+```
+--
+
+which is equivalent to
+
+```
+Monoid.apply[String].combine("Hi ", "there")
+```
+---
+
+Default instance
+
+```
+import cats.Monoid
+
+import cats.instances.string._
+
+val instance = Monoid[String]
+
+instance.combine("Monoids FTW!", instance.empty)
+```
+---
+
+| \yMonoid Syntax
+--
+
+Cats provides syntax for the combine method in the form of the |+| operator
+
+it comes from Semigroup - we should import it
+
+```
+import cats.syntax.semigroup._
+
+import cats.instances.string._
+
+val stringResult = "Hi " |+| "there" |+| Monoid[String].empty
+```
+--
+
+```
+import cats.instances.int._
+
+val intResult = 1 |+| 2 |+| Monoid[Int].empty
+```
+---
+
+| Exercise: Adding All The Things
+--
+
+The cutting edge SuperAdder v3.5a-32 is the world’s first choice
+for adding together numbers.
+The main function in the program has signature
+
+\m def add(items: List[Int]): Int.
+--
+
+In a tragic accident this code is deleted!
+
+Rewrite the method and save the day!
+
+---
+
+We can write the addition as a simple foldLeft using 0 and the + operator:
+--
+
+```
+def add(items: List[Int]): Int = items.foldLeft(0)(_ + _)
+```
+--
+
+We can alternatively write the fold using Monoids
+--
+
+```
+import cats.Monoid
+
+import cats.syntax.semigroup._
+
+def add(items: List[Int]): Int = items.foldLeft(Monoid[Int].empty)(_ |+| _)
+```
+---
+
+Well done!
+
+SuperAdder’s market share continues to grow,
+and now there is demand for additional functionality.
+
+People now want to add List[Option[Int]].
+Change add so this is possible.
+
+The SuperAdder code base is of the highest quality,
+so make sure there is no code duplication!
+---
+
+| Let's try to use \yMonoids
+--
+
+```
+import cats.Monoid
+
+import cats.syntax.semigroup._
+
+def add[A](items: List[A])(implicit monoid: Monoid[A]): A =
+  items.foldLeft(monoid.empty)(_ |+| _)
+```
+--
+
+We can optionally use Scala’s context bound syntax
+to write the same code in a friendlier way:
+
+```
+def add[A: Monoid](items: List[A]): A =
+  items.foldLeft(Monoid[A].empty)(_ |+| _)
+```
+---
+
+We can use this code to add values of type Int and Option[Int] as requested:
+--
+
+```
+import cats.instances.int._
+
+add(List(1, 2, 3))
+```
+
+--
+
+```
+import cats.instances.option._
+
+add(List(Some(1), None, Some(2), None, Some(3)))
+```
+--
+
+Let's try this:
+
+```
+add(List(Some(1), Some(2), Some(3)))
+```
+--
+
+Upps!
+--
+
+This happens because the inferred type of the list is List[Some[Int]],
+while Cats will only generate a Monoid for Option[Int].
+---
+
+SuperAdder is entering the POS (point-of-sale, not the other POS) market.
+Now we want to add up Orders:
+
+case class Order(totalCost: Double, quantity: Double)
+
+We need to release this code really soon
+so we can’t make any modifications to add.
+
+Make it so!
+---
+
+```
+case class Order(totalCost: Double, quantity: Double)
+
+object Order {
+  implicit val monoid: Monoid[Order] = new Monoid[Order] {
+    def combine(o1: Order, o2: Order) =
+      new Order(o1.totalCost + o2.totalCost, o1.quantity + o2.quantity)
+    def empty = new Order(0, 0)
+  }
+}
+```
+--
+
+Let's try it!
+--
+
+```
+add(List(Order(1.1, 2.2), Order(1.0, 2.0), Order(3.4, 4.7)))
+```
+---
+
+| Controlling Instance Selection
+
+- What is the relationship between an instance
+defined on a type and its subtypes?
+--
+
+- How do we choose between type class instances
+when there are many available?
+---
+
+| Type Class Variance
+--
+
+/
+Type Class Variance              Invariant         Covariant         Contravariant
+/
+Supertype instance used?         No                No                Yes
+More specific type preferred?    Yes               Yes               No
+/
+--
+
+Cats generally prefers to use invariant type classes.
+
+This allows us to specify more specific instances for subtypes if we want.
+---
+
+Solution for the problem:
+--
+
+- type annotation or
+--
+
+- smart constructors
+--
+
+```
+import cats.instances.option._
+
+import cats.syntax.option._
+
+val some1 = 1.some
+
+val noneInt = none[Int]
+```
+---
+
+| Identically Typed Instances
+--
+
+The other issue is choosing between type class instances when
+several are available for a specific type.
+--
+
+For example, how do we select the monoid for integer multiplication
+instead of the monoid for integer addition?
+--
+
+Cats currently has no mechanism for selecting alternaive instances,
+though this may change in the future
+---
+
+We can always define or import a type class instance into the local scope.
+
+This will take precedence over other type class instances in the implicit scope:
+
+```
+import cats.Monoid
+import cats.syntax.semigroup._
+
+implicit val multiplicationMonoid = new Monoid[Int] {
+    def empty: Int = 1
+    override def combine(x: Int, y: Int): Int = x * y
+  }
+
+3 |+| 2
+```
+---
+| Applications of Monoids
+
+---
+Big Data
+
+Almost every analysis that we might want to do over a large data set is a monoid, 
+and therefore we can build an expressive 
+and powerful analytics system around this idea.
+
+This is exactly what Twitter’s Algebird and Summingbird projects have done.
+---
+
+Distributed Systems
+
+Because of the associativity of monoid operations 
+computation can be parallelized =>
+
+you can run operations such as foldLeft() and reduceLeft() on them.
+
+---
+If your data structure has a monoid form, 
+this means you can plug the data structure directly 
+into large-scale data processing platforms such as Spark, Hadoop and Storm.
+
+---
+
+| Monoids in the Small
+
+```
+import cats.Monoid
+import cats.instances.all._
+import cats.syntax.semigroup._
+
+Option(1) |+| Option(2)
+```
+--
+
+```
+val map1 = Map("a" -> 1, "b" -> 2)
+val map2 = Map("b" -> 3, "d" -> 4)
+
+map1 |+| map2
+```
+--
+
+```
+val tuple1 = ("hello", 123)
+val tuple2 = ("world", 321)
+
+tuple1 |+| tuple2
+```
+
+---
+One more thing...
+---
+
+| Thank You!
+--
+
+| No questions please :)
+---

@@ -17,7 +17,7 @@ name := "REPLesent"
 
 version := "1.1"
 
-scalaVersion := "2.11.5"
+scalaVersion := "2.12.4"
 
 scalaSource in Test := baseDirectory.value / "test"
 
@@ -77,9 +77,9 @@ unsound-match              Pattern match may not be typesafe
 */
 
 libraryDependencies ++= Seq(
-    "org.scala-lang"  % "scala-compiler" % "2.11.5" % Compile
-  , "org.typelevel"  %% "cats"           % "0.4.1"
-  , "org.scalatest"  %% "scalatest"      % "2.2.4"  % Test
+    "org.scala-lang"  % "scala-compiler" % "2.12.4" % Compile
+  , "org.typelevel"  %% "cats"           % "0.9.0"
+  , "org.scalatest"  %% "scalatest"      % "3.0.1"  % Test
 )
 
 // Improved incremental compilation

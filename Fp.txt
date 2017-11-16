@@ -96,7 +96,7 @@ factorial(4)
 ➠ 4 * 3 * factorial(2)
 ➠ 4 * 3 * 2 * factorial(1)
 ➠ 4 * 3 * 2 * 1 * factorial(0)
-➠ 4 * 3 * 2 * 1 * 0
+➠ 4 * 3 * 2 * 1 * 1
 ➠ 24
 ---
 | \*\yThe problem of state
@@ -122,6 +122,7 @@ Functional programming was invented in 1957 before OO and structured.
 But memory was too expensive to make it practical.
 
 But memory is cheap now.
+--
 
 1957 - 411,041,792 $/Mbyte
 2016 - 0.0027      $/Mbyte
@@ -203,7 +204,13 @@ Surface complexity is constant as system size increases.
 
 42 = 2 * 3 * 7
 
+```
+val f: (Int) => String = _.toString
+
+val g: (String) => Boolean = _.isEmpty
+
 val fg = f andThen g
+```
 ---
 | \*\yFP => Happiness
 
@@ -215,8 +222,11 @@ val fg = f andThen g
 ---
 | \*\yFailure as a side effect
 
-Referential transparency and purity
 --
+Even Yoda recommends not to use exception handling for control flow. 
+“Do or do not, there is no try”
+---
+| \*\yReferential transparency and purity
 
 An expression \me\w is referentially transparent if,
 for all programs \mp,
@@ -296,22 +306,6 @@ case object None extends Option[Nothing]
 def mean(xs: Seq[Double]): Option[Double] =
     if (xs.isEmpty) None
     else Some(xs.sum / xs.length)
-```
----
-| \*\yExample
-
-```
-case class Employee(name: String, department: String)
-
-def lookupByName(name: String): Option[Employee] = ???
-```
---
-
-```
-val dept: String = lookupByName("Joe").
-    map(_.department).
-    filter(_ != "Accounting").
-    getOrElse("Default Dept")
 ```
 ---
 | \*\yBenefits
